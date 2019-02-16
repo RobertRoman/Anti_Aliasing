@@ -1,0 +1,32 @@
+Anti Aliasing Effect
+
+Descritption
+This C code applies the anti aliasing effect on png images which are resized 
+by 3 or an even number of times. The code can run on a numerous number of threads.
+
+Getting Started
+Simply by compiling the project and giving the right arguments, the code should run
+on any linux distribution. The makefile gives one example of running the code on a 
+colored pnm image (.png) included in the project.
+
+Prerequisites
+The gcc package should be enough.
+
+Run
+After compilation(make) execute the following command:
+./anti_aliasing "pnm image(ex: test.pnm)" "desired output name(ex: out.pnm)"
+	 	"desired resize factor(ex: 3 or even number)" "number of threads(ex: 2)"
+
+Explanation of the code
+The structure "image" contains the fields required to create a functional pnm 
+image. Variable "P" saves the type of the image ( P5(greyscale), P6(RGB) ),
+"width" and "height" save the dimensions of the image, "maxval" defines the 
+maximum value which means black, "grey" and "pic" save the values of the 
+greyscale/color image.
+Function "readInput" reads the input image and saves the header data and 
+the core image in local variables.
+Function "writeData" writes the resulted image.
+Function "resize" calculates the dimensions, allocates the requiered space
+and gives each thread its part to process.
+Function "threadFunction" checks the type of image (color/greyscale) and 
+the resize factor (3 / even) and then processes the image.
