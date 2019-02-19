@@ -16,6 +16,7 @@ Run
 After compilation(make) execute the following command:
 ./anti_aliasing "pnm image(ex: test.pnm)" "desired output name(ex: out.pnm)"
 	 	"desired resize factor(ex: 3 or even number)" "number of threads(ex: 2)"
+ex: ./anti_aliasing test.pnm out.pnm 4 3
 
 Explanation of the code
 The structure "image" contains the fields required to create a functional pnm 
